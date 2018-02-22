@@ -5,14 +5,14 @@ import java.util.Random;
 import java.io.*;
 
     public class Main {
-    	//функція генерування рандомного значення ключа 
+    	//random key value generation function
     	int min = 1; 
     	int max = 15; 
     	int offset = min + (int) (Math.random() * max);
   		
        public String encrypt(String s) throws IOException
     {
-     //побудова матриці з 26 латинських літер   
+     //construction of a matrix of 26 Latin letters 
         StringBuilder sb=new StringBuilder();
         for(int i=0;i<s.length();i++)
         {
@@ -79,33 +79,33 @@ import java.io.*;
 public static void main(String[] args) {
 try
 {
-    System.out.println("Шифр Плейфера");
+    System.out.println("Cipher Pleifer*");
     BufferedReader b;
     String oriTxt,encTxt,decTxt;
-    System.out.println("Введіть вхідний текст:");
-    b=new BufferedReader(new InputStreamReader(System.in));//зчитування вхідного тексту
+    System.out.println("Input text :");
+    b=new BufferedReader(new InputStreamReader(System.in));
     oriTxt=b.readLine();
     System.out.println("------------------------");
     
 
-    String str1 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";//запис у рядок літер алфавіту 
+    String str1 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";//record in line
     
     int colCount = 5;
     int strLen = str1.length();
-    int rowCoun = (strLen%colCount==0)?strLen/colCount:strLen/colCount+1;//побудова сток
+    int rowCoun = (strLen%colCount==0)?strLen/colCount:strLen/colCount+1;//build matrix
 
     char[] inputArray = str1.toCharArray();
     char[][] sarray = new char[rowCoun][colCount];
 
     for (int i=0; i<rowCoun; i++) {
         for (int j=0; j<colCount; j++)
-        	sarray[i][j] = (colCount*i+j < strLen)?inputArray[colCount*i+j]:' ';//запис в двувимірняй масив
+        	sarray[i][j] = (colCount*i+j < strLen)?inputArray[colCount*i+j]:' ';//record in a two-dimensional array
     }
 
 
     for (int i=0; i<rowCoun; i++) {
         for (int j=0; j<colCount; j++)
-            System.out.print("|"+sarray[i][j]); //вивід двовимірного масиву
+            System.out.print("|"+sarray[i][j]); //output in a two-dimensional array
         System.out.println();
     }
 
@@ -133,7 +133,7 @@ try
     
     Main c=new Main();
     encTxt=c.encrypt(oriTxt);
-    System.out.println("Зашифрований текст :"+encTxt);
+    System.out.println("Encrypted text :"+encTxt);
     System.out.println("---------------------------");
     int colum = 5;
    int sstrLength = encTxt.length();
@@ -155,7 +155,7 @@ try
     
     System.out.println("-----------------------");
     decTxt=c.decrypt(encTxt);
-    System.out.println("Дешифрований текст :"+decTxt);
+    System.out.println("Dencrypted text :"+decTxt);
 }
 catch(Exception e)
 {
